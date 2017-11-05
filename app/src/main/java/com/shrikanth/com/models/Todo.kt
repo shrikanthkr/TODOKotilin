@@ -1,7 +1,8 @@
-package com.shrikanth.com.data
+package com.shrikanth.com.models
 
 /**
  * Created by shrikanth on 11/5/17.
+ *
  */
 
 open class Todo constructor(){
@@ -12,7 +13,10 @@ open class Todo constructor(){
     var titleError: String? = null
     var descriptionError: String? = null
 
-    constructor( title: String?, description: String?) :  this()
+    constructor( title: String?, description: String?) :  this(){
+        this.title = title
+        this.description = description
+    }
 
     fun valid(): Boolean{
         titleError = if (title?.isNotEmpty() == true) null else "Empty Title"

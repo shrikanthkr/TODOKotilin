@@ -3,11 +3,13 @@ package com.shrikanth.com.todokotlin
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.widget.Toast
-import com.shrikanth.com.data.Todo
+import com.shrikanth.com.data.DBApi
+import com.shrikanth.com.models.Todo
 import kotlinx.android.synthetic.main.activity_add_todo.*
 
 /**
  * Created by shrikanth on 11/5/17.
+ *
  */
 class AddTodoActivity : AppCompatActivity(){
 
@@ -24,6 +26,7 @@ class AddTodoActivity : AppCompatActivity(){
             t.description = description_edittext.editText!!.text.toString()
             if (t.valid()){
                 Toast.makeText(baseContext, "Its a valid Todo", Toast.LENGTH_SHORT).show()
+                DBApi.addTodo(t)
             }else{
                 title_edittext.error = t.titleError
                 description_edittext.error = t.descriptionError
